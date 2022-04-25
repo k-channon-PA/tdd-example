@@ -1,6 +1,6 @@
 
 #include "Buffer.h"
 
-namespace kjc {
+namespace kjc_ma {
 
 }
