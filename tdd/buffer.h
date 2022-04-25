@@ -4,6 +4,7 @@ namespace kjc_ma {
 
 class Buffer {
  public:
+
   using value_type = uint8_t;
 
  private:
@@ -14,11 +15,11 @@ class Buffer {
 
   Buffer() {}
 
-  Buffer(std::initializer_list< value_type > x) : _data{*x.begin()}, _push_index{1} {};
+  Buffer(value_type x) : _data{x}, _push_index{1} {};
 
   [[nodiscard]] size_type size() const noexcept { return _push_index - _pull_index; }
   
-  [[nodiscard]] size_type capacity() const noexcept { return 1; }
+  [[nodiscard]] static constexpr size_type capacity() noexcept { return 1; }
   
   void push(value_type val) {
     _data = val;
