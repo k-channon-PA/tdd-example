@@ -6,7 +6,8 @@ namespace kjc {
  public:
    using size_type = size_t;
 
-   [[nodiscard]] size_type size() const noexcept { return 0; }
+   [[nodiscard]] constexpr size_type size() const noexcept { return 0; }
+   [[nodiscard]] constexpr size_type capacity() const noexcept { return 16; }
   };
 
 }
