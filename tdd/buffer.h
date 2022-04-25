@@ -17,9 +17,12 @@ class Buffer {
   Buffer(std::initializer_list< value_type > x) : _data{std::move(x)}, _push_index{_data.size()} {};
 
   [[nodiscard]] size_type size() const noexcept { return _push_index - _pull_index; }
+  
   [[nodiscard]] size_type capacity() const noexcept { return _data.size(); }
+  
   void push(value_type val) { _data[_push_index++] = val; }
-  value_type pull() {
+
+  [[nodiscard]] value_type pull() {
     const auto out = _data[_pull_index++];
     return out;
   }
