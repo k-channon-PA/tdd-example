@@ -16,7 +16,14 @@ TEST(BufferTest, PushSingleItemToBufferWorks) {
 }
 
 TEST(BufferTest, ConstructInitialiserList) {
+  const auto b = kjc_ma::Buffer{1, 2, 3};
+  ASSERT_EQ(3, b.size());
+}
 
-    auto b = kjc_ma::Buffer{1, 2, 3};
-    ASSERT_EQ(3, b.size());
+TEST(BufferTest, PullRemovesElement) {
+  auto b       = kjc_ma::Buffer{1, 2, 3};
+  const auto x = b.pull();
+
+  EXPECT_EQ(1, x);
+  EXPECT_EQ(2, b.size());
 }
