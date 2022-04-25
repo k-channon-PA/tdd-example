@@ -14,3 +14,9 @@ TEST(BufferTest, PushSingleItemToBufferWorks) {
 
   ASSERT_EQ(1, b.size());
 }
+
+TEST(BufferTest, ConstructInitialiserList) {
+
+    auto b = kjc_ma::Buffer{1, 2, 3};
+    ASSERT_EQ(3, b.size());
+}
